@@ -1,7 +1,8 @@
 // "use client"
 import React from 'react'
 import Link from 'next/link';
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
+import { buttonVariants } from '@/components/ui/button';
 import {
     Sheet,
     SheetContent,
@@ -9,8 +10,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "@/components/ui/sheet"
-
+} from "@/components/ui/sheet";
 import { ModeToggle } from './theme-btn';
 // import LoadingBar from 'react-top-loading-bar';
 // import { usePathname } from 'next/navigation';
@@ -33,18 +33,18 @@ function Navbar() {
                 <div className="hidden md:flex space-x-4 items-center">
                     <Link href="/" className="hover:scale-105 hover:font-semibold transition-transform duration-300"> Home
                     </Link>
+                    <Link href="/allblogs" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
+                        Blogs
+                    </Link>
                     <Link href="/about" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
                         About
-                    </Link>
-                    <Link href="/blog" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                        Blog
                     </Link>
                     <Link href="/contact" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
                         Contact
                     </Link>
                     <div className='flex items-center'>
-                        <Button className="mx-1" variant="outline">Login</Button>
-                        <Button className="mx-1" variant="outline">Signup</Button>
+                        <Link href={`/login`} className={`mx-1 ${buttonVariants({ variant: "outline" })}`}>Login</Link>
+                        <Link href={`/signup`} className={`mx-1 ${buttonVariants({ variant: "outline" })}`}>SignUp</Link>
                         <ModeToggle />
                     </div>
                 </div>
@@ -64,20 +64,21 @@ function Navbar() {
                                 <SheetTitle className="font-bold my-4">Blogging App</SheetTitle>
                                 <SheetDescription>
                                     <div className="flex flex-col gap-6">
-                                        <Link href="/"> Home
+                                        <Link href="/">
+                                            Home
+                                        </Link>
+                                        <Link href="/allblogs">
+                                            Blogs
                                         </Link>
                                         <Link href="/about">
                                             About
-                                        </Link>
-                                        <Link href="/blog">
-                                            Blog
                                         </Link>
                                         <Link href="/contact">
                                             Contact
                                         </Link>
                                         <div>
-                                            <Button className="mx-1 text-xs" variant="outline">Login</Button>
-                                            <Button className="mx-1 text-xs" variant="outline">Signup</Button>
+                                            <Link href={`/login`} className={`mx-1 text-xs ${buttonVariants({ variant: "outline" })}`}>Login</Link>
+                                            <Link href={`/signup`} className={`mx-1 text-xs ${buttonVariants({ variant: "outline" })}`}>SignUp</Link>
                                         </div>
                                     </div>
                                 </SheetDescription>

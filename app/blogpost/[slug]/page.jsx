@@ -5,20 +5,13 @@ import { notFound } from 'next/navigation';
 
 
 export default function BlogPost({ params }) {
-    // return <div>My Post: {params.slug}</div>?
-    // const blog = {
-    //     title: "Typescript tutorial in hindi",
-    //     author: "John Doe",
-    //     description: "This is a sample blog post description.",
-    //     date: "2024-09-02",
-    //     content: "<p>This is the content of the blog post. It can include <strong>HTML</strong> tags and other elements.</p>"
-    // };
+    
 
     const filePath = `content/${params.slug}.md`;
 
     if (!fs.existsSync(filePath)) {
         notFound()
-        return;
+        // return;
     }
 
     const fileContent = fs.readFileSync(filePath, 'utf-8')
